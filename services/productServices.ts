@@ -19,4 +19,9 @@ export const ProductService = {
     };
   },
 
+  getAll: async () => {
+    const [rows] = await db.execute('SELECT * FROM productos');
+    return rows;
+  },
+
 };
