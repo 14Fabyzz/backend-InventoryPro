@@ -20,5 +20,14 @@ export const createProduct = async (req: Request, res: Response) => {
   }
 };
 
+export const getAllProducts = async (_req: Request, res: Response) => {
+  try {
+    const products = await ProductService.getAll();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener los productos', error });
+  }
+};
+
 
   
