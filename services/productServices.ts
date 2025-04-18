@@ -24,4 +24,9 @@ export const ProductService = {
     return rows;
   },
 
+  getById: async (id: number) => {
+    const [rows]: any = await db.execute('SELECT * FROM productos WHERE id = ?', [id]);
+    return rows[0] || null;
+  },
+
 };
