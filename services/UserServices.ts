@@ -14,6 +14,10 @@ class UserService {
     static async login(auth: Auth) {
         return await UserRepository.login(auth);
     }
+
+    static async getAllUsers() {
+        return await UserRepository.getAllUsers();
+    }
 }
 
 export default UserService;
