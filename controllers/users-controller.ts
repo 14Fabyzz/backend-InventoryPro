@@ -35,4 +35,14 @@ export const updateUser = async (req: Request, res: Response) => {
     }
 };
 
+export const deleteUser = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        await UserService.deleteUser(Number(id));
+        res.status(200).json({ message: 'Usuario eliminado' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al eliminar el usuario', error });
+    }
+};
+
 

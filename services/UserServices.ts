@@ -26,6 +26,10 @@ class UserService {
     static async updateUser(id: number, user: User) {
         return await UserRepository.updateUser(id, user);
     }
+
+    static async deleteUser(id: number) {
+        return await UserRepository.deleteUser(id);
+    }
 }
 
 export default UserService;
