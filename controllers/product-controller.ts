@@ -39,5 +39,16 @@ export const getProductById = async (req: Request, res: Response) => {
   }
 };
 
+export const updateProduct = async (req: Request, res: Response) => {
+  try {
+    const { nombre, descripcion, precio, stock } = req.body;
+    const updatedProduct = new Product(nombre, descripcion, precio, stock);
+    const result = await ProductService.update(Number(req.params.id), updatedProduct);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al actualizar el producto', error });
+  }
+};
+
 
   

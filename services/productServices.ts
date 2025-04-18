@@ -29,4 +29,12 @@ export const ProductService = {
     return rows[0] || null;
   },
 
+  update: async (id: number, data: Product) => {
+    await db.execute(
+      'UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ? WHERE id = ?',
+      [data.nombre, data.descripcion, data.precio, data.stock, id]
+    );
+    return { id, ...data };
+  },
+
 };

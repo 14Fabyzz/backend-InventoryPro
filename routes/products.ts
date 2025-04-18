@@ -7,5 +7,6 @@ const router = Router();
 router.post('/', verifyToken, ProductController.createProduct);
 router.get('/', verifyToken, ProductController.getAllProducts);
 router.get('/:id', verifyToken, ProductController.getProductById);
+router.put('/:id', verifyToken, ProductController.updateProduct);
 
 export default router;
