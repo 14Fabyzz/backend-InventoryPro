@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import register from './routes/register';
 import auth from './routes/auth';
 import profile from './routes/profile';
-
+import products from './routes/products';
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,6 +14,7 @@ app.use('/register', register);
 app.use('/auth', auth);
 app.use('/profile', profile);
 
+app.use('/products', products);
 const PORT = process.env.PORT || 10101;
 
 app.listen(PORT, () => {
