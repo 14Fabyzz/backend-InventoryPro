@@ -30,6 +30,10 @@ class UserService {
     static async deleteUser(id: number) {
         return await UserRepository.deleteUser(id);
     }
+
+    static async getUserByEmail(email: string) {
+        return await UserRepository.getUserByEmail(email);
+    }
 }
 
 export default UserService;

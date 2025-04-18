@@ -48,6 +48,13 @@ class UserRepository {
         const values = [id];
         return db.execute(sql, values);
     }
+
+    static async getUserByEmail(email: string){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users WHERE email=?';
+        const values = [email];
+        return db.execute(sql, values);
+    }
+
 }
 
 

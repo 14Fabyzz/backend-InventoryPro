@@ -9,5 +9,6 @@ router.get('/all', verifyToken, UserController.getAllUsers);
 router.get('/:id', verifyToken, UserController.getUserById);
 router.put('/:id', verifyToken, UserController.updateUser);
 router.delete('/:id', verifyToken, UserController.deleteUser);
+router.get('/email/:email', verifyToken, UserController.getUserByEmail);
 
 export default router;

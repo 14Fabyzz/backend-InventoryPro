@@ -45,4 +45,18 @@ export const deleteUser = async (req: Request, res: Response) => {
     }
 };
 
+export const getUserByEmail = async (req: Request, res: Response) => {
+    const { email } = req.params;
+    try {
+        const user = await UserService.getUserByEmail(email);
+        if (user.length > 0) {
+            res.json(user[0]);
+        } else {
+            res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener el usuario', error });
+    }
+};
+
 
