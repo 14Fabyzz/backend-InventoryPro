@@ -25,6 +25,11 @@ class UserRepository {
         }
         return {logged: false, status: "Invalid username or password" };
     }
+
+    static async getAllUsers(){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users';
+        return db.execute(sql);
+    }
 }
 
 

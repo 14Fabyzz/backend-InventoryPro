@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from 'body-parser';
-
+import users from './routes/users';
 import register from './routes/register';
 import auth from './routes/auth';
 import profile from './routes/profile';
@@ -13,6 +13,7 @@ const app = express().use(bodyParser.json());
 app.use('/register', register);
 app.use('/auth', auth);
 app.use('/profile', profile);
+app.use('/users', users);
 
 app.use('/products', products);
 const PORT = process.env.PORT || 10101;
