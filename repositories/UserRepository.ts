@@ -42,6 +42,19 @@ class UserRepository {
         const values = [user.email, user.nombres, user.apellidos, user.telefono, id];
         return db.execute(sql, values);
     }
+
+    static async deleteUser(id: number){
+        const sql = 'DELETE FROM users WHERE id=?';
+        const values = [id];
+        return db.execute(sql, values);
+    }
+
+    static async getUserByEmail(email: string){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users WHERE email=?';
+        const values = [email];
+        return db.execute(sql, values);
+    }
+
 }
 
 
