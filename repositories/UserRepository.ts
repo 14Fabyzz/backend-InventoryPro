@@ -30,6 +30,37 @@ class UserRepository {
         const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users';
         return db.execute(sql);
     }
+
+    static async getUserById(id: number){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users WHERE id=?';
+        const values = [id];
+        return db.execute(sql, values);
+    }
+
+    static async updateUser(id: number, user: User){
+        const sql = 'UPDATE users SET email=?, nombres=?, apellidos=?, telefono=? WHERE id=?';
+        const values = [user.email, user.nombres, user.apellidos, user.telefono, id];
+        return db.execute(sql, values);
+    }
+
+    static async deleteUser(id: number){
+        const sql = 'DELETE FROM users WHERE id=?';
+        const values = [id];
+        return db.execute(sql, values);
+    }
+
+    static async getUserByEmail(email: string){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users WHERE email=?';
+        const values = [email];
+        return db.execute(sql, values);
+    }
+
+    static async updateEmail(id: number, email: string){
+        const sql = 'UPDATE users SET email=? WHERE id=?';
+        const values = [email, id];
+        return db.execute(sql, values);
+    }
+
 }
 
 
