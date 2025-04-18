@@ -36,6 +36,12 @@ class UserRepository {
         const values = [id];
         return db.execute(sql, values);
     }
+
+    static async updateUser(id: number, user: User){
+        const sql = 'UPDATE users SET email=?, nombres=?, apellidos=?, telefono=? WHERE id=?';
+        const values = [user.email, user.nombres, user.apellidos, user.telefono, id];
+        return db.execute(sql, values);
+    }
 }
 
 

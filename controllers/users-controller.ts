@@ -24,4 +24,15 @@ export const getUserById = async (req: Request, res: Response) => {
     }
 };
 
+export const updateUser = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const user = req.body;
+    try {
+        await UserService.updateUser(Number(id), user);
+        res.status(200).json({ message: 'Usuario actualizado' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar el usuario', error });
+    }
+};
+
 
