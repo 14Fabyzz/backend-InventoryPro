@@ -6,5 +6,6 @@ import exp from 'constants';
 const router = express.Router();
 
 router.get('/all', verifyToken, UserController.getAllUsers);
+router.get('/:id', verifyToken, UserController.getUserById);
 
 export default router;
