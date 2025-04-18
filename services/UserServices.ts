@@ -22,6 +22,10 @@ class UserService {
     static async getUserById(id: number) {
         return await UserRepository.getUserById(id);
     }
+
+    static async updateUser(id: number, user: User) {
+        return await UserRepository.updateUser(id, user);
+    }
 }
 
 export default UserService;
