@@ -59,4 +59,16 @@ export const getUserByEmail = async (req: Request, res: Response) => {
     }
 };
 
+export const updateEmail = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { email } = req.body;
+    try {
+        await UserService.updateEmail(Number(id), email);
+        res.status(200).json({ message: 'Email actualizado' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar el email', error });
+    }
+}
+
+
 

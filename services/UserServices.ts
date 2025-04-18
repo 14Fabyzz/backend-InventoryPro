@@ -34,6 +34,10 @@ class UserService {
     static async getUserByEmail(email: string) {
         return await UserRepository.getUserByEmail(email);
     }
+
+    static async updateEmail(id: number, email: string) {
+        return await UserRepository.updateEmail(id, email);
+    }
 }
 
 export default UserService;
