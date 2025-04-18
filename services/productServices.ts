@@ -37,4 +37,8 @@ export const ProductService = {
     return { id, ...data };
   },
 
+  delete: async (id: number) => {
+    await db.execute('DELETE FROM productos WHERE id = ?', [id]);
+  },
+
 };

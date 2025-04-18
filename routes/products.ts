@@ -8,5 +8,5 @@ router.post('/', verifyToken, ProductController.createProduct);
 router.get('/', verifyToken, ProductController.getAllProducts);
 router.get('/:id', verifyToken, ProductController.getProductById);
 router.put('/:id', verifyToken, ProductController.updateProduct);
-
+router.delete('/:id', verifyToken, ProductController.deleteProduct);
 export default router;
