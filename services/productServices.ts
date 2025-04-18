@@ -41,4 +41,11 @@ export const ProductService = {
     await db.execute('DELETE FROM productos WHERE id = ?', [id]);
   },
 
+  updateDescripcion: async (id: number, descripcion: string) => {
+    await db.execute(
+      'UPDATE productos SET descripcion = ? WHERE id = ?',
+      [descripcion, id]
+    );
+  }, 
+
 };

@@ -59,5 +59,25 @@ export const deleteProduct = async (req: Request, res: Response) => {
   }
 };
 
+// modificar producto por id, solo descripcion
+export const updateDescripcion = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { descripcion } = req.body;
+
+  if (!descripcion) {
+    return res.status(400).json({ message: 'La descripcion es obligatoria' });
+  }
+  try {
+    const producto = await ProductService.getById(Number(id));
+    if (!producto) {
+      return res.status(404).json({ message: "Producto no encontrado" });
+    }
+    await ProductService.updateDescripcion(Number(id), descripcion);
+    return res.status(200).json({ message: "Descripcion actualizada correctamente" });
+  } catch (error) {
+    console.error("Error al actualizar la descripcion:", error);
+    return res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
 
   
