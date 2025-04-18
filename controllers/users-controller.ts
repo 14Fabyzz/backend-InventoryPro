@@ -9,3 +9,19 @@ export const getAllUsers = async (req: Request, res: Response) => {
         res.status(500).json({ message: 'Error retrieving users', error });
     }
 };
+
+export const getUserById = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const user = await UserService.getUserById(Number(id));
+        if (user.length > 0) {
+            res.json(user[0]);
+        } else {
+            res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener el usuario', error });
+    }
+};
+
+

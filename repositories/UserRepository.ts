@@ -30,6 +30,12 @@ class UserRepository {
         const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users';
         return db.execute(sql);
     }
+
+    static async getUserById(id: number){
+        const sql = 'SELECT id, email, nombres, apellidos, telefono FROM users WHERE id=?';
+        const values = [id];
+        return db.execute(sql, values);
+    }
 }
 
 

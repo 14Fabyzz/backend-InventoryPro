@@ -18,6 +18,10 @@ class UserService {
     static async getAllUsers() {
         return await UserRepository.getAllUsers();
     }
+
+    static async getUserById(id: number) {
+        return await UserRepository.getUserById(id);
+    }
 }
 
 export default UserService;
