@@ -29,5 +29,15 @@ export const getAllProducts = async (_req: Request, res: Response) => {
   }
 };
 
+export const getProductById = async (req: Request, res: Response) => {
+  try {
+    const product = await ProductService.getById(Number(req.params.id));
+    if (!product) return res.status(404).json({ message: 'No encontrado' });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener el producto', error });
+  }
+};
+
 
   
